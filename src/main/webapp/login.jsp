@@ -26,7 +26,7 @@
  <div class="card shadow">
  <div class="card-body">
  <h2 class="mb-4 text-center text-white">Iniciar secion</h2>
- <form action="dashboard.html" method="post">
+ <form id="formlogin" action="dashboard.html" method="post">
  <div class="mb-3">
  <label for="email" class="form-label">Correo electronico</label>
  <input type="email" id="email" name="email" class="form-control" placeholder="Correo electronico" required>
