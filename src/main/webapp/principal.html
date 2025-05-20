@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Cursos - Sistema Escolar</title>
+    <link rel="stylesheet" href="CSS/Principal.css">
+</head>
+<body>
+<div class="contenedor-principal">
+    <header class="cabecera">
+        <div class="logo">
+            <h1><i class="fas fa-chalkboard-teacher"></i> Panel del Maestro</h1>
+        </div>
+        <nav class="navegacion">
+            <ul>
+                <li><a href="#" class="activo"><i class="fas fa-book"></i> Mis Cursos</a></li>
+                <li><a href="#"><i class="fas fa-users"></i> Mis Alumnos</a></li>
+                <li><a href="#"><i class="fas fa-calendar-check"></i> Asistencias</a></li>
+                <li><a href="#"><i class="fas fa-cog"></i> Configuración</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contenido">
+        <section class="bienvenida-maestro">
+            <h2>Bienvenido, <span class="nombre-maestro">Juan Pérez</span></h2>
+            <p>Gestiona tus cursos y materiales educativos.</p>
+            <button id="btn-nuevo-curso" class="btn-primario">
+                <i class="fas fa-plus"></i> Agregar Nuevo Curso
+            </button>
+        </section>
+
+        <section class="mis-cursos">
+            <h2><i class="fas fa-book-open"></i> Mis Cursos Registrados</h2>
+
+            <div class="lista-cursos">
+                <!-- Curso 1 -->
+                <div class="curso">
+                    <div class="curso-info">
+                        <h3>Matemáticas</h3>
+                        <p><strong>Código:</strong> MAT-101</p>
+                        <p><strong>Alumnos inscritos:</strong> 2</p>
+                        <p><strong>Horario:</strong> Lunes y Miércoles 10:00 - 12:00</p>
+                    </div>
+                    <div class="curso-acciones">
+                        <button class="btn-editar"><i class="fas fa-edit"></i> Editar</button>
+                        <button class="btn-eliminar"><i class="fas fa-trash"></i> Eliminar</button>
+                    </div>
+                </div>
+
+                <!-- Curso 2 -->
+                <div class="curso">
+                    <div class="curso-info">
+                        <h3>Física</h3>
+                        <p><strong>Código:</strong> FIS-201</p>
+                        <p><strong>Alumnos inscritos:</strong> 2</p>
+                        <p><strong>Horario:</strong> Martes y Jueves 14:00 - 16:00</p>
+                    </div>
+                    <div class="curso-acciones">
+                        <button class="btn-editar"><i class="fas fa-edit"></i> Editar</button>
+                        <button class="btn-eliminar"><i class="fas fa-trash"></i> Eliminar</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal para agregar/editar curso -->
+        <div id="modal-curso" class="modal">
+            <div class="modal-contenido">
+                <span class="cerrar-modal">&times;</span>
+                <h2 id="modal-titulo">Nuevo Curso</h2>
+                <form id="form-curso">
+                    <div class="form-grupo">
+                        <label for="nombre-curso">Nombre del Curso:</label>
+                        <input type="text" id="nombre-curso" required>
+                    </div>
+                    <div class="form-grupo">
+                        <label for="codigo-curso">Código:</label>
+                        <input type="text" id="codigo-curso" required>
+                    </div>
+                    <div class="form-grupo">
+                        <label for="horario-curso">Horario:</label>
+                        <input type="text" id="horario-curso" required>
+                    </div>
+                    <div class="form-grupo">
+                        <label for="descripcion-curso">Descripción:</label>
+                        <textarea id="descripcion-curso" rows="4"></textarea>
+                    </div>
+                    <div class="form-acciones">
+                        <button type="button" class="btn-secundario cerrar-modal">Cancelar</button>
+                        <button type="submit" class="btn-primario">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="pie-pagina">
+        <p>Sistema de Gestión Escolar &copy; 2025</p>
+    </footer>
+</div>
+
+
+</body>
+</html>

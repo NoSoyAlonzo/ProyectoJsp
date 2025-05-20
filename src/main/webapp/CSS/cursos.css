@@ -1,0 +1,47 @@
+.lista-cursos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.curso {
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+}
+
+.curso:hover {
+    transform: scale(1.03);
+}
+
+.curso-info h3 {
+    margin: 0 0 10px;
+    color: #003366;
+}
+
+.curso-acciones {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-editar, .btn-eliminar {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn-editar {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-eliminar {
+    background-color: #dc3545;
+    color: white;
+}
