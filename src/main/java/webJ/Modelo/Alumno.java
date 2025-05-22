@@ -1,5 +1,7 @@
 package webJ.Modelo;
 
+package webJ.Modelo;
+
 public class Alumno {
     private int id;
     private String nombre;

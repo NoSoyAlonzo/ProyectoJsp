@@ -12,8 +12,20 @@
         <res-auth>Container</res-auth>
     </resource-ref>
 
-    <!-- Opcional: Página de inicio -->
     <welcome-file-list>
+        <welcome-file>registro.html</welcome-file>
         <welcome-file>login.jsp</welcome-file>
     </welcome-file-list>
+
+    <display-name>RegistrarMaestroServlet</display-name> <servlet>
+        <servlet-name>RegistrarMaestroServlet</servlet-name>
+        <servlet-class>servlets.RegistrarMaestroServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>RegistrarMaestroServlet</servlet-name>
+        <url-pattern>/RegistrarMaestroServlet</url-pattern>
+    </servlet-mapping>
+
+
 </web-app>

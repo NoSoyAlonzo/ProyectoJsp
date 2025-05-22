@@ -1,0 +1,267 @@
+:root {
+    --color-primario: #005baa;
+    --color-secundario: #0074cc;
+    --color-acento: #e74c3c;
+    --color-fondo: #ecf0f1;
+    --color-texto: #2c3e50;
+    --color-borde: #ccc;
+    --sombra: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --transicion: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--color-texto);
+    background-color: var(--color-fondo);
+    background-image: url('../Imagenes/itsonBackground.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.contenedor-principal {
+    min-height: 100vh;
+    background-color: rgba(255, 255, 255, 0.96);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Cabecera */
+.cabecera {
+    background-color: var(--color-primario);
+    color: #fff;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--sombra);
+}
+
+.logo h1 {
+    font-size: 1.7rem;
+    font-weight: bold;
+}
+
+.navegacion ul {
+    list-style: none;
+    display: flex;
+    gap: 1.2rem;
+}
+
+.navegacion a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: var(--transicion);
+}
+
+.navegacion a:hover,
+.navegacion a.activo {
+    background-color: var(--color-secundario);
+}
+
+/* Contenido */
+.contenido {
+    flex: 1;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.bienvenida-maestro {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--sombra);
+}
+
+.bienvenida-maestro h2 {
+    color: var(--color-primario);
+}
+
+.nombre-maestro {
+    color: var(--color-secundario);
+}
+
+.mis-cursos h2 {
+    color: var(--color-primario);
+    margin-top: 2rem;
+}
+
+.lista-cursos {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.curso {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-left: 5px solid var(--color-primario);
+    border-radius: 6px;
+    box-shadow: var(--sombra);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: var(--transicion);
+}
+
+.curso:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
+
+.curso-info h3 {
+    color: var(--color-primario);
+}
+
+.curso-acciones {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-primario,
+.btn-secundario,
+.btn-editar,
+.btn-eliminar {
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: var(--transicion);
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primario {
+    background-color: var(--color-primario);
+    color: white;
+}
+
+.btn-primario:hover {
+    background-color: var(--color-secundario);
+}
+
+.btn-secundario {
+    background-color: white;
+    border: 1px solid var(--color-primario);
+    color: var(--color-primario);
+}
+
+.btn-secundario:hover {
+    background-color: #f7f9fa;
+}
+
+.btn-editar {
+    background-color: #f39c12;
+    color: white;
+}
+
+.btn-editar:hover {
+    background-color: #e67e22;
+}
+
+.btn-eliminar {
+    background-color: var(--color-acento);
+    color: white;
+}
+
+.btn-eliminar:hover {
+    background-color: #c0392b;
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    display: none;
+    z-index: 99;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(44, 62, 80, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-contenido {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: var(--sombra);
+    position: relative;
+}
+
+.cerrar-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #888;
+    transition: var(--transicion);
+}
+
+.cerrar-modal:hover {
+    color: var(--color-texto);
+}
+
+/* Formularios */
+.form-grupo {
+    margin-bottom: 1.5rem;
+}
+
+.form-grupo label {
+    font-weight: 600;
+    color: var(--color-secundario);
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.form-grupo input,
+.form-grupo select,
+.form-grupo textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--color-borde);
+    border-radius: 4px;
+    transition: var(--transicion);
+}
+
+.form-grupo input:focus,
+.form-grupo textarea:focus {
+    border-color: var(--color-primario);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 91, 170, 0.2);
+}
+
+@media (max-width: 768px) {
+    .cabecera {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navegacion ul {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .curso {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .curso-acciones {
+        margin-top: 1rem;
+        justify-content: flex-end;
+        width: 100%;
+    }
+}

@@ -11,6 +11,17 @@ public class MaestroDAO {
         this.conn = conn;
     }
 
+    public void agregarMaestro(Maestro maestro) throws SQLException {
+        String sql = "INSERT INTO Maestro (nombre, email, contrasena) VALUES (?, ?, ?)";
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, maestro.getNombre());
+            stmt.setString(2, maestro.getEmail());
+            stmt.setString(3, maestro.getContrasena());
+            stmt.executeUpdate();
+        }
+    }
+
+
     public Maestro autenticar(String email, String contrasena) throws SQLException {
         String sql = "SELECT * FROM Maestro WHERE email = ? AND contrasena = ?";
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
