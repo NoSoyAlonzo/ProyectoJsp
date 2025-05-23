@@ -1,6 +1,7 @@
 package com.mycompany.proyectov2.model;
 
 import jakarta.persistence.*;
+import java.util.Date;
 
 @Entity
 public class Asistencia {
@@ -52,4 +53,22 @@ public class Asistencia {
     public void setPresente(boolean presente) {
         this.presente = presente;
     }
+    
+    public Date getFecha() {
+        return this.id != null ? this.id.getFecha() : null;
+    }
+
+    public void setFecha(Date fecha) {
+        if (this.id == null) {
+            this.id = new AsistenciaId();
+        }
+        this.id.setFecha(fecha);
+    }
+
+
+    public boolean getPresente() {
+        return presente;
+    }
+
+    
 }

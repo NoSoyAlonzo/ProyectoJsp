@@ -1,8 +1,12 @@
 // Archivo: com.mycompany.proyectov2.dao.ClaseDAO.java
 package com.mycompany.proyectov2.dao;
 
+import com.mycompany.proyectov2.model.Alumno;
+import com.mycompany.proyectov2.model.Asistencia;
+import com.mycompany.proyectov2.model.AsistenciaId;
 import com.mycompany.proyectov2.model.Clase;
 import jakarta.persistence.*;
+import java.util.Date;
 
 import java.util.List;
 
@@ -63,10 +67,50 @@ public class ClaseDAO {
             em.close();
         }
     }
-
-
     
+    public Clase obtenerClasePorId(Integer idClase) {
+        EntityManager em = emf.createEntityManager();
+        return em.find(Clase.class, idClase);
+    }
+
+    public List<Alumno> obtenerAlumnosConAsistenciasPorClase(Integer idClase) {
+        EntityManager em = emf.createEntityManager();
+        return em.createQuery(
+            "SELECT DISTINCT a FROM Alumno a LEFT JOIN FETCH a.asistencias asis " +
+            "WHERE a.clase.id = :idClase", Alumno.class)
+            .setParameter("idClase", idClase)
+            .getResultList();
+    }
     
+    public void agregarAsistenciasPorFecha(int idClase, Date fecha) {
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+
+        try {
+            tx.begin();
+
+            List<Alumno> alumnos = em.createQuery(
+                "SELECT DISTINCT a FROM Alumno a WHERE a.clase.id = :idClase", Alumno.class)
+                .setParameter("idClase", idClase)
+                .getResultList();
+
+            for (Alumno alumno : alumnos) {
+                Asistencia asistencia = new Asistencia();
+                asistencia.setAlumno(alumno);
+                asistencia.setPresente(false);
+                asistencia.setId(new AsistenciaId(alumno.getId(), fecha));
+                em.persist(asistencia);
+            }
+
+            tx.commit();
+        } catch (Exception e) {
+            if (tx.isActive()) tx.rollback();
+            throw e;
+        } finally {
+            em.close();
+        }
+    }
+
     
     
 }

@@ -3,6 +3,7 @@ package com.mycompany.proyectov2.model;
 import java.io.Serializable;
 import java.util.Date;
 import jakarta.persistence.*;
+import java.time.LocalDate;
 import java.util.Objects;
 
 @Embeddable

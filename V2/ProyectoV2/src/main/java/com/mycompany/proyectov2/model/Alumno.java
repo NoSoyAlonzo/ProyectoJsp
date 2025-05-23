@@ -26,6 +26,22 @@ public class Alumno {
     
     @OneToMany(mappedBy = "alumno", cascade = CascadeType.ALL)
     private List<Asistencia> asistencias;
+
+    public Clase getClase() {
+        return clase;
+    }
+
+    public void setClase(Clase clase) {
+        this.clase = clase;
+    }
+
+    public List<Asistencia> getAsistencias() {
+        return asistencias;
+    }
+
+    public void setAsistencias(List<Asistencia> asistencias) {
+        this.asistencias = asistencias;
+    }
  
     public Alumno() {
     }
@@ -54,8 +70,5 @@ public class Alumno {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
-    
-    
-    
+
 }

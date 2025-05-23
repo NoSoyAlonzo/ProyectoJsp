@@ -81,6 +81,14 @@ function confirmarEliminacion(idClase) {
                             </div>
                             <div class="curso-acciones">
                                 
+                                <!-- NUEVO BOTÓN VER CLASE -->
+                                <form action="verClase" method="get" style="display:inline;">
+                                    <input type="hidden" name="idClase" value="<%= clase.getId() %>">
+                                    <button type="submit" class="btn-ver">
+                                        <i class="fas fa-eye"></i> Ver Clase
+                                    </button>
+                                </form>
+                                
                                 <button class="btn-editar" onclick="abrirModalEditar(<%= clase.getId() %>, '<%= clase.getNombre() %>')">
                                     <i class="fas fa-edit"></i> Editar
                                 </button>
